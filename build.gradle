@@ -11,7 +11,6 @@ buildscript {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
         classpath "io.spring.gradle:propdeps-plugin:0.0.9.RELEASE"
         classpath "gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.17"
-        //jhipster-needle-gradle-buildscript-dependency - JHipster will add additional gradle build script plugins here
     }
 }
 
@@ -22,13 +21,11 @@ plugins {
     id "net.ltgt.apt" version "0.13"
     id "io.spring.dependency-management" version "1.0.3.RELEASE"
     id "com.moowork.node" version "1.2.0"
-    //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
 apply plugin: 'java'
 sourceCompatibility=1.8
 targetCompatibility=1.8
-// Until JHipster supports JDK 9
 assert System.properties['java.specification.version'] == '1.8'
 
 apply plugin: 'maven'
@@ -43,7 +40,6 @@ apply plugin: 'idea'
 dependencyManagement {
   imports {
     mavenBom 'io.github.jhipster:jhipster-dependencies:' + jhipster_dependencies_version
-    //jhipster-needle-gradle-dependency-management - JHipster will add additional dependencies management here
   }
 }
 
@@ -97,10 +93,6 @@ if (OperatingSystem.current().isWindows()) {
 
 test {
     exclude '**/CucumberTest*'
-
-    // uncomment if the tests reports are not generated
-    // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
-    // ignoreFailures true
     reports.html.enabled = false
 }
 
@@ -109,19 +101,10 @@ task testReport(type: TestReport) {
     reportOn test
 }
 
-
-apply from: 'gradle/yeoman.gradle'
-apply from: 'gradle/docker.gradle'
 apply from: 'gradle/sonar.gradle'
 apply from: 'gradle/liquibase.gradle'
 apply from: 'gradle/mapstruct.gradle'
-//jhipster-needle-gradle-apply-from - JHipster will add additional gradle scripts to be applied here
-
-if (project.hasProperty('prod')) {
-    apply from: 'gradle/profile_prod.gradle'
-} else {
-    apply from: 'gradle/profile_dev.gradle'
-}
+apply from: 'gradle/profile_dev.gradle'
 
 if (project.hasProperty('graphite')) {
     apply from: 'gradle/graphite.gradle'
@@ -212,7 +195,6 @@ dependencies {
     optional ("org.springframework.boot:spring-boot-configuration-processor") {
         exclude group: 'com.vaadin.external.google', module: 'android-json'
     }
-    //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 
 task cleanResources(type: Delete) {
