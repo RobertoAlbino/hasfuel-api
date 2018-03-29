@@ -34,13 +34,6 @@ public class ControleApp {
         this.env = env;
     }
 
-    /**
-     * Initializes Controle.
-     * <p>
-     * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
-     * <p>
-     * You can find more information on how profiles work with JHipster on <a href="http://www.jhipster.tech/profiles/">http://www.jhipster.tech/profiles/</a>.
-     */
     @PostConstruct
     public void initApplication() {
         Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
@@ -54,12 +47,6 @@ public class ControleApp {
         }
     }
 
-    /**
-     * Main method, used to run the application.
-     *
-     * @param args the command line arguments
-     * @throws UnknownHostException if the local host name could not be resolved into an address
-     */
     public static void main(String[] args) throws UnknownHostException {
         SpringApplication app = new SpringApplication(ControleApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
