@@ -1,8 +1,6 @@
 package com.roberto.controle.service.dto;
 
 import com.roberto.controle.config.Constants;
-
-import com.roberto.controle.domain.Authority;
 import com.roberto.controle.domain.User;
 
 import org.hibernate.validator.constraints.Email;
@@ -11,11 +9,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.validation.constraints.*;
 import java.time.Instant;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-/**
- * A DTO representing a user, with his authorities.
- */
 public class UserDTO {
 
     private Long id;
@@ -66,13 +60,6 @@ public class UserDTO {
         this.activated = user.getActivated();
         this.imageUrl = user.getImageUrl();
         this.langKey = user.getLangKey();
-        this.createdBy = user.getCreatedBy();
-        this.createdDate = user.getCreatedDate();
-        this.lastModifiedBy = user.getLastModifiedBy();
-        this.lastModifiedDate = user.getLastModifiedDate();
-        this.authorities = user.getAuthorities().stream()
-            .map(Authority::getName)
-            .collect(Collectors.toSet());
     }
 
     public Long getId() {

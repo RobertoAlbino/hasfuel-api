@@ -27,43 +27,25 @@ import java.util.Collection;
 public class ControleApp {
 
     private static final Logger log = LoggerFactory.getLogger(ControleApp.class);
-
     private final Environment env;
 
     public ControleApp(Environment env) {
         this.env = env;
     }
 
-    @PostConstruct
-    public void initApplication() {
-        Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
-        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {
-            log.error("You have misconfigured your application! It should not run " +
-                "with both the 'dev' and 'prod' profiles at the same time.");
-        }
-        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_CLOUD)) {
-            log.error("You have misconfigured your application! It should not " +
-                "run with both the 'dev' and 'cloud' profiles at the same time.");
-        }
-    }
-
     public static void main(String[] args) throws UnknownHostException {
         SpringApplication app = new SpringApplication(ControleApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
-        String protocol = "http";
-        if (env.getProperty("server.ssl.key-store") != null) {
-            protocol = "https";
-        }
         log.info("\n----------------------------------------------------------\n\t" +
-                "Application '{}' is running! Access URLs:\n\t" +
+                "Aplicação '{}' está rodando! Acesso:\n\t" +
                 "Local: \t\t{}://localhost:{}\n\t" +
-                "External: \t{}://{}:{}\n\t" +
-                "Profile(s): \t{}\n----------------------------------------------------------",
+                "Externo: \t{}://{}:{}\n\t" +
+                "Perfil: \t{}\n----------------------------------------------------------",
             env.getProperty("spring.application.name"),
-            protocol,
+            "http",
             env.getProperty("server.port"),
-            protocol,
+            "http",
             InetAddress.getLocalHost().getHostAddress(),
             env.getProperty("server.port"),
             env.getActiveProfiles());

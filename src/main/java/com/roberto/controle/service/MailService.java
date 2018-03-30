@@ -18,11 +18,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import javax.mail.internet.MimeMessage;
 import java.util.Locale;
 
-/**
- * Service for sending emails.
- * <p>
- * We use the @Async annotation to send emails asynchronously.
- */
+
 @Service
 public class MailService {
 
