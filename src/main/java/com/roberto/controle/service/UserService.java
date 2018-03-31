@@ -3,7 +3,6 @@ package com.roberto.controle.service;
 import com.roberto.controle.domain.User;
 import com.roberto.controle.config.Constants;
 import com.roberto.controle.repository.UserRepository;
-import com.roberto.controle.service.util.RandomUtil;
 import com.roberto.controle.service.dto.UserDTO;
 
 import org.slf4j.Logger;

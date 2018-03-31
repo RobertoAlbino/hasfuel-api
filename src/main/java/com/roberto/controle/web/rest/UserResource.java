@@ -8,10 +8,6 @@ import com.roberto.controle.service.MailService;
 import com.roberto.controle.service.UserService;
 import com.roberto.controle.service.dto.UserDTO;
 import com.roberto.controle.web.rest.errors.BadRequestAlertException;
-import com.roberto.controle.web.rest.errors.EmailAlreadyUsedException;
-import com.roberto.controle.web.rest.errors.LoginAlreadyUsedException;
-import com.roberto.controle.web.rest.util.HeaderUtil;
-import com.roberto.controle.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 
 import org.slf4j.Logger;

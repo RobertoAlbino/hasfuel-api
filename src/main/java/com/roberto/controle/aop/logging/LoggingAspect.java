@@ -25,9 +25,6 @@ public class LoggingAspect {
         this.env = env;
     }
 
-    /**
-     * Pointcut that matches all repositories, services and Web REST endpoints.
-     */
     @Pointcut("within(@org.springframework.stereotype.Repository *)" +
         " || within(@org.springframework.stereotype.Service *)" +
         " || within(@org.springframework.web.bind.annotation.RestController *)")
@@ -35,9 +32,6 @@ public class LoggingAspect {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }
 
-    /**
-     * Pointcut that matches all Spring beans in the application's main packages.
-     */
     @Pointcut("within(com.roberto.controle.repository..*)"+
         " || within(com.roberto.controle.service..*)"+
         " || within(com.roberto.controle.web.rest..*)")
