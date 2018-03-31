@@ -34,17 +34,11 @@ public class LoggingAspect {
 
     @Pointcut("within(com.roberto.controle.repository..*)"+
         " || within(com.roberto.controle.service..*)"+
-        " || within(com.roberto.controle.web.rest..*)")
+        " || within(com.roberto.controle.controllers..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }
 
-    /**
-     * Advice that logs methods throwing exceptions.
-     *
-     * @param joinPoint join point for advice
-     * @param e exception
-     */
     @AfterThrowing(pointcut = "applicationPackagePointcut() && springBeanPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
         if (env.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT)) {
@@ -57,13 +51,6 @@ public class LoggingAspect {
         }
     }
 
-    /**
-     * Advice that logs when a method is entered and exited.
-     *
-     * @param joinPoint join point for advice
-     * @return result
-     * @throws Throwable throws IllegalArgumentException
-     */
     @Around("applicationPackagePointcut() && springBeanPointcut()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
         if (log.isDebugEnabled()) {

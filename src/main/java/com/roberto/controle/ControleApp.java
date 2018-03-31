@@ -38,7 +38,7 @@ public class ControleApp {
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         log.info("\n----------------------------------------------------------\n\t" +
-                "Aplicacao '{}' esta             rodando! Acesso:\n\t" +
+                "Aplicacao '{}' esta rodando! Acesso:\n\t" +
                 "Local: \t\t{}://localhost:{}\n\t" +
                 "Externo: \t{}://{}:{}\n\t" +
                 "Perfil: \t{}\n----------------------------------------------------------",
