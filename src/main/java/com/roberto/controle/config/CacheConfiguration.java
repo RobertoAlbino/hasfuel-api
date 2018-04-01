@@ -37,12 +37,7 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
-            cm.createCache(com.roberto.controle.repository.UserRepository.USERS_BY_LOGIN_CACHE, jcacheConfiguration);
-            cm.createCache(com.roberto.controle.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
-            cm.createCache(com.roberto.controle.domain.User.class.getName(), jcacheConfiguration);
-            cm.createCache(com.roberto.controle.domain.User.class.getName() + ".authorities", jcacheConfiguration);
-            cm.createCache(com.roberto.controle.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
-            // jhipster-needle-ehcache-add-entry
+            cm.createCache(com.roberto.controle.domain.Usuario.class.getName(), jcacheConfiguration);
         };
     }
 }
