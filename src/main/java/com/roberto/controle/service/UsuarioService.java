@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class UsuarioService {
-
     private final Logger log = LoggerFactory.getLogger(UsuarioService.class);
     private final UsuarioRepository usuarioRepository;
 
@@ -21,6 +20,15 @@ public class UsuarioService {
 
     public Usuario criarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
+    }
+
+    public String removerUsuario(long id) {
+        usuarioRepository.delete(id);
+        return "Usuário removido com sucesso";
+    }
+
+    public Usuario consultarUsuario(long id) {
+        return usuarioRepository.findOne(id);
     }
 
 
