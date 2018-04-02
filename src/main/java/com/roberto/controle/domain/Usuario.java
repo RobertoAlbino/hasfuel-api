@@ -12,9 +12,10 @@ import javax.validation.constraints.Size;
 @Table(name = "usuarios")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @NotNull
     @Size(min = 1, max = 150)
@@ -23,19 +24,19 @@ public class Usuario {
 
     @NotNull
     @Size(min = 10, max = 60)
-    @Column(name = "senha", length = 60)
+    @Column(name = "senha", length = 60, nullable = false)
     private String senha;
 
     @Email
     @Size(min = 5, max = 100)
-    @Column(length = 100, unique = true)
+    @Column(length = 100, unique = true, nullable = false)
     private String email;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
