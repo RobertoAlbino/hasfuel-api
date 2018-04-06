@@ -35,7 +35,7 @@ public class UsuarioController {
     }
 
     @GetMapping(value = "/consultar", consumes = "application/json",  produces="application/json")
-    public Usuario consultarUsuario(@RequestBody int idUsuario) {
-        return usuarioService.consultarUsuario(idUsuario);
+    public Usuario consultarUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.consultarUsuario(usuario.getId());
     }
 }
