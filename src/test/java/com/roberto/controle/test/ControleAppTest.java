@@ -3,15 +3,10 @@ package com.roberto.controle.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TesteTest {
+public class ControleAppTest {
 
     @Test
-    public void testar() {
+    public void main() {
         Assert.assertTrue(2 == 2);
-    }
-
-    @Test
-    public void testar2() {
-        Assert.assertTrue( 1 == 2);
     }
 }
