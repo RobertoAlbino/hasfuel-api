@@ -20,6 +20,7 @@ plugins {
     id "net.ltgt.apt" version "0.13"
     id "io.spring.dependency-management" version "1.0.3.RELEASE"
     id "com.moowork.node" version "1.2.0"
+    id "com.heroku.sdk.heroku-gradle" version "1.0.1"
 }
 
 apply plugin: 'java'
@@ -195,20 +196,8 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.4'
 }
 
-task stage(type: Copy, dependsOn: ['bootRepackage', clean, build]) {
-    from jar.archivePath
-    into project.rootDir
-    rename {
-        'app.jar'
-    }
+task stage(dependsOn: ['bootRepackage']) {
 }
-
-stage.mustRunAfter(clean)
-
-clean << {
-    project.file('app.jar').delete()
-}
-
 
 compileJava.dependsOn processResources
 processResources.dependsOn cleanResources,bootBuildInfo
