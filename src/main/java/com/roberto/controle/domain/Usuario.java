@@ -13,6 +13,13 @@ import javax.validation.constraints.Size;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Usuario {
 
+    public Usuario() {
+        setId(0);
+        setLogin("Login");
+        setSenha("Senha");
+        setEmail("email@email.com");
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
