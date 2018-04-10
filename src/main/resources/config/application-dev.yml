@@ -17,10 +17,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-
-        url: jdbc:mysql://localhost:3306/Controle?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-        username: root
-        password:
+        url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_9b54d3eb431123c?reconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+        username: b2a394ad0f499e
+        password: 1d9d0d0a
         hikari:
             data-source-properties:
                 cachePrepStmts: true
