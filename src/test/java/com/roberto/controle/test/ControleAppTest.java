@@ -1,9 +1,9 @@
 package com.roberto.controle.test;
 
-import org.junit.Test;
+import org.junit.Ignore;
 
 public class ControleAppTest {
 
-    @Test
+    @Ignore
     public void main() {}
 }

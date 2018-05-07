@@ -1,14 +1,14 @@
 package com.roberto.controle.domain.base;
 
-public class RetornoBaseModel {
+public class RetornoBaseModel<T> {
     private boolean sucesso;
     private String mensagem;
-    private Object objeto;
+    private T objeto;
 
-    public RetornoBaseModel() {
-        this.sucesso = false;
-        this.mensagem = "O objeto de retorno não foi inicializado.";
-        this.objeto = new Object();
+    public RetornoBaseModel(Boolean sucesso, String mensagem, T objeto) {
+        setSucesso(sucesso);
+        setMensagem(mensagem);
+        setObjeto(objeto);
     }
 
     public boolean isSucesso() {
@@ -31,7 +31,7 @@ public class RetornoBaseModel {
         return objeto;
     }
 
-    public void setObjeto(Object objeto) {
+    public void setObjeto(T objeto) {
         this.objeto = objeto;
     }
 

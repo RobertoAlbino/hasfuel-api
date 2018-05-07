@@ -12,6 +12,4 @@ public class MD5Utils {
         }
         return hexString.toString();
     }
-
-
 }

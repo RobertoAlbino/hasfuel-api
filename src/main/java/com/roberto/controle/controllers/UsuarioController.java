@@ -1,7 +1,7 @@
 package com.roberto.controle.controllers;
 
 import com.roberto.controle.domain.base.RetornoBaseModel;
-import com.roberto.controle.domain.Usuario;
+import com.roberto.controle.domain.entities.Usuario;
 import com.roberto.controle.service.UsuarioService;
 
 import org.slf4j.Logger;
@@ -20,13 +20,9 @@ public class UsuarioController {
     }
 
     @PostMapping(value = "/criar", consumes = "application/json",  produces="application/json")
-    public RetornoBaseModel criarUsuario(@RequestBody Usuario usuario) {
-        Usuario usuarioRetorno = usuarioService.criarUsuario(usuario);
-        objetoRetorno = new RetornoBaseModel();
-        objetoRetorno.setSucesso(true);
-        objetoRetorno.setMensagem("Usuário criado com sucesso.");
-        objetoRetorno.setObjeto(usuarioRetorno);
-        return objetoRetorno;
+    public RetornoBaseModel criarUsuario(@RequestBody Usuario usuario) throws Exception {
+        Usuario usuarioEntidade = usuarioService.criarUsuario(usuario);
+        return new RetornoBaseModel<Usuario>(true, "Usuário criado com sucesso.", usuarioEntidade);
     }
 
     @PutMapping(value = "/atualizar", consumes = "application/json",  produces="application/json")
@@ -34,12 +30,8 @@ public class UsuarioController {
         if (usuario.getId() == 0)
             throw new Exception("Não é possível atualizar uma entidade sem id.");
 
-        Usuario usuarioRetorno = usuarioService.criarUsuario(usuario);
-        objetoRetorno = new RetornoBaseModel();
-        objetoRetorno.setSucesso(true);
-        objetoRetorno.setMensagem("Usuário atualizado com sucesso.");
-        objetoRetorno.setObjeto(usuarioRetorno);
-        return objetoRetorno;
+        Usuario usuarioEntidade = usuarioService.criarUsuario(usuario);
+        return new RetornoBaseModel<Usuario>(true, "Usuário atualizado com sucesso.", usuarioEntidade);
     }
 
     @DeleteMapping(value = "/remover", consumes = "application/json",  produces="application/json")
@@ -48,11 +40,7 @@ public class UsuarioController {
             throw new Exception("Não é possível excluir uma entidade sem id.");
 
         usuarioService.removerUsuario(usuario.getId());
-        objetoRetorno = new RetornoBaseModel();
-        objetoRetorno.setSucesso(true);
-        objetoRetorno.setMensagem("Usuário removido com sucesso.");
-        objetoRetorno.setObjeto(new Object());
-        return objetoRetorno;
+        return new RetornoBaseModel<Object>(true, "Usuário removido com sucesso.", new Object());
     }
 
     @GetMapping(value = "/consultar", consumes = "application/json",  produces="application/json")
@@ -60,11 +48,7 @@ public class UsuarioController {
         if (usuario.getId() == 0)
             throw new Exception("Não é possível consultar sem um id.");
 
-        Usuario usuarioRetorno = usuarioService.consultarUsuario(usuario.getId());
-        objetoRetorno = new RetornoBaseModel();
-        objetoRetorno.setSucesso(true);
-        objetoRetorno.setMensagem("Usuário consultado com sucesso.");
-        objetoRetorno.setObjeto(usuarioRetorno);
-        return objetoRetorno;
+        Usuario usuarioEntidade = usuarioService.consultarUsuario(usuario.getId());
+        return new RetornoBaseModel<Usuario>(true, "Usuário criado com sucesso.", usuarioEntidade);
     }
 }

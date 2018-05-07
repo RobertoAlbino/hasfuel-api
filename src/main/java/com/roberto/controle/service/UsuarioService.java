@@ -1,6 +1,7 @@
 package com.roberto.controle.service;
 
-import com.roberto.controle.domain.Usuario;
+import com.roberto.controle.domain.entities.Usuario;
+import com.roberto.controle.domain.models.LoginModel;
 import com.roberto.controle.repository.UsuarioRepository;
 
 import org.slf4j.Logger;
@@ -18,17 +19,20 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Usuario criarUsuario(Usuario usuario) {
+    public Usuario criarUsuario(Usuario usuario) throws Exception {
         return usuarioRepository.save(usuario);
     }
 
-    public String removerUsuario(long id) {
+    public void removerUsuario(long id) {
         usuarioRepository.delete(id);
-        return "Usuário removido com sucesso";
     }
 
     public Usuario consultarUsuario(long id) {
         return usuarioRepository.findOne(id);
+    }
+
+    public Usuario findFirstByLogin(LoginModel loginModel) {
+        return usuarioRepository.findFirstByLogin(loginModel.getLogin());
     }
 
 

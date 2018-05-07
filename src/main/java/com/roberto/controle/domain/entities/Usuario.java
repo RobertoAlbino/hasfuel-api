@@ -1,4 +1,6 @@
-package com.roberto.controle.domain;
+package com.roberto.controle.domain.entities;
+
+import com.roberto.controle.utils.MD5Utils;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -12,13 +14,6 @@ import javax.validation.constraints.Size;
 @Table(name = "usuarios")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Usuario {
-
-    public Usuario() {
-        setId(0);
-        setLogin("Login");
-        setSenha("Senha");
-        setEmail("email@email.com");
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,8 +54,8 @@ public class Usuario {
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenha(String senha) throws Exception {
+        this.senha = MD5Utils.encriptarSenha(senha);
     }
 
     public String getEmail() {
