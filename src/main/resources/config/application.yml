@@ -10,7 +10,7 @@ management:
             enabled: false
 spring:
     application:
-        name: Controle
+        name: HasFuel
     profiles:
         active:
     jackson:
@@ -48,11 +48,11 @@ jhipster:
         max-pool-size: 50
         queue-capacity: 10000
     mail:
-        from: Controle@localhost
+        from: HasFuel@localhost
     swagger:
         default-include-pattern: /api/.*
-        title: Controle API
-        description: Controle API documentation
+        title: HasFuel API
+        description: HasFuel API documentation
         version: 0.0.1
         terms-of-service-url:
         contact-name:
