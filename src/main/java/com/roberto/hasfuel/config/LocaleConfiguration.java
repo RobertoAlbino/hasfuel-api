@@ -1,4 +1,4 @@
-package com.roberto.controle.config;
+package com.roberto.hasfuel.config;
 
 import io.github.jhipster.config.locale.AngularCookieLocaleResolver;
 

@@ -1,6 +1,6 @@
-package com.roberto.controle.config;
+package com.roberto.hasfuel.config;
 
-import com.roberto.controle.aop.logging.LoggingAspect;
+import com.roberto.hasfuel.aop.logging.LoggingAspect;
 
 import io.github.jhipster.config.JHipsterConstants;
 

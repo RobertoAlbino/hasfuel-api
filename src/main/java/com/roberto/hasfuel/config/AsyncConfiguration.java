@@ -1,4 +1,4 @@
-package com.roberto.controle.config;
+package com.roberto.hasfuel.config;
 
 import io.github.jhipster.async.ExceptionHandlingAsyncTaskExecutor;
 import io.github.jhipster.config.JHipsterProperties;
@@ -35,7 +35,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setCorePoolSize(jHipsterProperties.getAsync().getCorePoolSize());
         executor.setMaxPoolSize(jHipsterProperties.getAsync().getMaxPoolSize());
         executor.setQueueCapacity(jHipsterProperties.getAsync().getQueueCapacity());
-        executor.setThreadNamePrefix("controle-Executor-");
+        executor.setThreadNamePrefix("hasfuel-Executor-");
         return new ExceptionHandlingAsyncTaskExecutor(executor);
     }
 

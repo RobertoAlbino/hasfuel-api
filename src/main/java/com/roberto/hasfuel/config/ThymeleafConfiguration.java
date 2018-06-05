@@ -1,4 +1,4 @@
-package com.roberto.controle.config;
+package com.roberto.hasfuel.config;
 
 import org.apache.commons.lang3.CharEncoding;
 import org.slf4j.Logger;

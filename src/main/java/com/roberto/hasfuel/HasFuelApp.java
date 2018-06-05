@@ -1,7 +1,7 @@
-package com.roberto.controle;
+package com.roberto.hasfuel;
 
-import com.roberto.controle.config.ApplicationProperties;
-import com.roberto.controle.config.DefaultProfileUtil;
+import com.roberto.hasfuel.config.ApplicationProperties;
+import com.roberto.hasfuel.config.DefaultProfileUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

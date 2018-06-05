@@ -1,4 +1,4 @@
-package com.roberto.controle.config;
+package com.roberto.hasfuel.config;
 
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.config.JHipsterProperties;
@@ -28,9 +28,6 @@ import java.nio.file.Paths;
 import java.util.*;
 import javax.servlet.*;
 
-/**
- * Configuration of web application with Servlet 3.0 APIs.
- */
 @Configuration
 public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
 

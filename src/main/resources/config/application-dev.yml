@@ -1,7 +1,7 @@
 logging:
     level:
         ROOT: DEBUG
-        com.roberto.controle: DEBUG
+        com.roberto.hasfuel: DEBUG
         io.github.jhipster: DEBUG
 
 spring:

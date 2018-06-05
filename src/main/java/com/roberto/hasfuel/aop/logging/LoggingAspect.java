@@ -1,4 +1,4 @@
-package com.roberto.controle.aop.logging;
+package com.roberto.hasfuel.aop.logging;
 
 import io.github.jhipster.config.JHipsterConstants;
 
@@ -32,9 +32,9 @@ public class LoggingAspect {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }
 
-    @Pointcut("within(com.roberto.controle.repository..*)"+
-        " || within(com.roberto.controle.service..*)"+
-        " || within(com.roberto.controle.controllers..*)")
+    @Pointcut("within(com.roberto.hasfuel.repository..*)"+
+        " || within(com.roberto.hasfuel.service..*)"+
+        " || within(com.roberto.hasfuel.controllers..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }

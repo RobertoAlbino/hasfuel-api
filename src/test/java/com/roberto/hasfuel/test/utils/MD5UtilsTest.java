@@ -1,8 +1,8 @@
-package com.roberto.controle.test.utils;
+package com.roberto.hasfuel.test.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.roberto.controle.utils.MD5Utils;
+import com.roberto.hasfuel.utils.MD5Utils;
 
 public class MD5UtilsTest {
 
